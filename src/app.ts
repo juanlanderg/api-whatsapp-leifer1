@@ -14,7 +14,7 @@ const main = async () => {
 
     // Configuración de CORS
     const allowedOrigins = process.env.NODE_ENV === "production"
-        ? ["https://hojaldrados-app.flutterflow.app/"] // Dominio de tu app en producción
+        ? ["https://hojaldrados-app.flutterflow.app"] // Dominio de tu app en producción
         : ["http://localhost:3002"];           // Dominio en desarrollo
 
     provider.http?.server.use(cors({
