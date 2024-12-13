@@ -13,9 +13,10 @@ const main = async () => {
     provider.initHttpServer(3002);
 
     // Configuración de CORS
-    const allowedOrigins = process.env.NODE_ENV === "production"
-        ? ["https://hojaldrados-app.flutterflow.app"] // Dominio de tu app en producción
-        : ["http://localhost:3002"];           // Dominio en desarrollo
+    const allowedOrigins = (origin) => {
+        const regex = /^https:\/\/(.*\.)?hojaldrados-app\.flutterflow\.app$/;
+        return regex.test(origin);
+    };
 
     provider.http?.server.use(cors({
         origin: allowedOrigins,
